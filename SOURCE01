@@ -120,6 +120,7 @@ local values = {
 		fov = 90,
 		aimMode = "Lock",
 		tpWalkSpeed = 1,
+		megaknifespeed = 1,
 	}
 }
 
@@ -489,22 +490,11 @@ local megknifemain = megaKnife:AddToggle({
 				
 				    humanoid.AnimationPlayed:Connect(function(animationTrack)
 				
-				        animationTrack:AdjustSpeed(20)
-				        print(4)
+				        animationTrack:AdjustSpeed(values.megaknifespeed)
 				    end)
 				    
 			else
 				warn('err ~500~')
-				local Players = game:GetService("Players")
-				    local player = Players.LocalPlayer
-				    local character = player.Character or player.CharacterAdded:Wait()
-				    local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
-				
-				    humanoid.AnimationPlayed:Connect(function(animationTrack)
-				
-				        animationTrack:AdjustSpeed(1)
-				        print(5)
-				    end)
 			end
 		wait(0.01)
 		end
@@ -1685,6 +1675,19 @@ local inventoryCheckerRadiusSlider = inventoryCheckerSec:AddSlider({
 		values.radius["inventoryChecker"] = value
 	end
 })
+
+local megaKnifeSlider = MegaKnife:AddSlider({
+	Name = "Speed",
+	Flag = "MegaKnifeSpeedFFlag",
+	Value = 100,
+	Min = 10,
+	Max = 100,
+	Callback = function(value)
+		values.megaknifespeed = value
+		warn(values.megaknifespeed)
+	end
+})
+
 
 local viewmodelTransparencySlider = viewmodelSec:AddSlider({
 	Name = "ViewModel Transparency",
