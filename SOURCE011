@@ -1676,7 +1676,7 @@ local inventoryCheckerRadiusSlider = inventoryCheckerSec:AddSlider({
 	end
 })
 
-local megaKnifeSlider = MegaKnife:AddSlider({
+local megaKnifeSlider = megaKnife:AddSlider({
 	Name = "Speed",
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 100,
