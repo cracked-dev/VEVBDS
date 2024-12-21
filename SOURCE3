@@ -480,9 +480,6 @@ local megknifemain = megaKnife:AddToggle({
 	Value = false,
 	Flag = 'playerBoxToggleFlag',
 	Callback = function(value)
-Value = false,
-	Flag = 'playerBoxToggleFlag',
-	Callback = function(value)
 		values.enabled["playerBox"] = value
 		if not values.enabled["playerBox"] then
 			for _, v in ipairs(players:GetPlayers()) do
