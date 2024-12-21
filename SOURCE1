@@ -490,7 +490,7 @@ local megknifemain = megaKnife:AddToggle({
 				
 				    humanoid.AnimationPlayed:Connect(function(animationTrack)
 				
-				        animationTrack:AdjustSpeed(values.megaknifespeed)
+				        animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
 				    end)
 				    
 			else
