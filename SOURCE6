@@ -480,6 +480,23 @@ local megknifemain = megaKnife:AddToggle({
 	Value = false,
 	Flag = 'playerBoxToggleFlag',
 	Callback = function(value)
+		while true do
+			if value == 'true' then
+				    local Players = game:GetService("Players")
+				    local player = Players.LocalPlayer
+				    local character = player.Character or player.CharacterAdded:Wait()
+				    local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
+				
+				    humanoid.AnimationPlayed:Connect(function(animationTrack)
+				
+				        animationTrack:AdjustSpeed(20)
+				        print(4)
+				    end)
+				    Wait(0.01)
+			else:
+				warn('err ~500~')
+			end
+		end
 		print(value)
 	end
 })
