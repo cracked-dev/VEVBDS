@@ -479,7 +479,7 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 local megknifemain = megaKnife:AddToggle({
 	Name = "Enable",
 	Value = false,
-	Flag = 'playerBoxToggleFlag',
+	Flag = 'megaknifeToggleFlag',
 	Callback = function(value)
 		while true do
 			if value == 'true' or value == true then
@@ -498,7 +498,6 @@ local megknifemain = megaKnife:AddToggle({
 			end
 		wait(0.01)
 		end
-		print(value)
 	end
 })
 
