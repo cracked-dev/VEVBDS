@@ -493,7 +493,7 @@ local megknifemain = megaKnife:AddToggle({
 				        print(4)
 				    end)
 				    Wait(0.01)
-			else:
+			else
 				warn('err ~500~')
 			end
 		end
