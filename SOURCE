@@ -390,7 +390,7 @@ local viewmodelSec = miscTab:CreateSection({Name = "Viewmodel", Side = "Right"})
 local helicopterSec = miscTab:CreateSection({Name = "AntiAim?", Side = "Right"})
 local tpWalkSec = combatTab:CreateSection({Name = "TpWalk", Side = "Left"})
 
-local megaKnife = megatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
+local megaKnife = combatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
 
 local aimSec = combatTab:CreateSection({Name = "Aim", Side = "Left"})
 local megaBulletsSec = combatTab:CreateSection({Name = "MegaBullets", Side = "Right"})
