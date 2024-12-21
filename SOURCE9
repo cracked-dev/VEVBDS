@@ -481,7 +481,7 @@ local megknifemain = megaKnife:AddToggle({
 	Flag = 'playerBoxToggleFlag',
 	Callback = function(value)
 		while true do
-			if value == 'true' then
+			if value == 'true' or value == true then
 				    local Players = game:GetService("Players")
 				    local player = Players.LocalPlayer
 				    local character = player.Character or player.CharacterAdded:Wait()
