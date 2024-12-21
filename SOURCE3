@@ -480,7 +480,31 @@ local megknifemain = megaKnife:AddToggle({
 	Value = false,
 	Flag = 'playerBoxToggleFlag',
 	Callback = function(value)
-
+Value = false,
+	Flag = 'playerBoxToggleFlag',
+	Callback = function(value)
+		values.enabled["playerBox"] = value
+		if not values.enabled["playerBox"] then
+			for _, v in ipairs(players:GetPlayers()) do
+				if not v.Character then continue end
+				local elements = getEspElements(v.Character, "player")
+				removeDrawings(elements, "boxes")
+				removeDrawings(elements, "boxOutlines")
+			end
+		else
+			while values.enabled["playerBox"] do
+				task.wait(1)
+				if not values.enabled["playerBox"] then break end
+				for _, v in ipairs(players:GetPlayers()) do
+					if v.Name == LC.Name or not v.Character then continue end
+					local elements = getEspElements(v.Character, "player")
+					if #elements.boxes <= 0 and v.Character.PrimaryPart and checkDistance(camera.CFrame.Position, v.Character.PrimaryPart.CFrame.Position, values.distance["player"]) then
+						addFrameBox(v.Character, "player")
+					end
+				end
+			end
+		end
+		print(value)
 	end
 })
 
