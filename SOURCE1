@@ -110,6 +110,9 @@ local values = {
 	radius = {
 		aim = 100,
 		inventoryChecker = 100,
+		offsetx = 0,
+		offsety = 0,
+		offsetz = 0,
 	},
 	misc = {
 		tagsFont = 1,
@@ -384,6 +387,7 @@ local droppedItemVisualsSec = visualsTab:CreateSection({Name = "DroppedItems", S
 
 local screenEffectsSec = screenTab:CreateSection({Name = "ScreenEffects", Side = "Right"})
 local crosshairSec = screenTab:CreateSection({Name = "Crosshair", Side = "Left"})
+local viewmodeloffset = screenTab:CreateSection({Name = "View Model Offset", Side = "Left"})
 
 local toggleVisualsSec = miscTab:CreateSection({Name = "Toggle Visuals", Side = "Right"})
 local inventoryCheckerSec = miscTab:CreateSection({Name = "InventroyChecker", Side = "Left"})
@@ -1746,6 +1750,47 @@ local megaKnifeSlider = megaKnife:AddSlider({
 		warn(values.megaknifespeed) --q
 	end
 })
+
+
+
+--1111
+
+local X = viewmodeloffset:AddSlider({
+	Name = "X",
+	Flag = "MegaKnifeSpeedFFlag",
+	Value = 0,
+	Min = 1,
+	Max = 10,
+	Callback = function(value)
+		values.radius["offsetx"] = value
+	end
+})
+
+local Y = viewmodeloffset:AddSlider({
+	Name = "Y",
+	Flag = "MegaKnifeSpeedFFlag",
+	Value = 0,
+	Min = 1,
+	Max = 10,
+	Callback = function(value)
+		values.radius["offsety"] = value
+
+	end
+})
+
+local Z = viewmodeloffset:AddSlider({
+	Name = "Z",
+	Flag = "MegaKnifeSpeedFFlag",
+	Value = 0,
+	Min = 1,
+	Max = 10,
+	Callback = function(value)
+		values.radius["offsetz"] = value
+	end
+})
+
+
+--1111
 
 
 local viewmodelTransparencySlider = viewmodelSec:AddSlider({
