@@ -491,14 +491,31 @@ local megknifemain = megaKnife:AddToggle({
         local player = Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
 
-        -- Проверяем наличие ViewModel в Camera
-        local camera = game.Workspace:FindFirstChild("Camera")
-        if camera and camera:FindFirstChild("ViewModel") then
-            warn('ViewModel найден в камере')
+        -- Переменные для хранения необходимых объектов
+        local camera, viewModel, humanoid, animator
 
-            local humanoid = camera.ViewModel:FindFirstChildOfClass("Humanoid")
-            if humanoid and humanoid:FindFirstChild("Animator") then
-                local animator = humanoid.Animator
+        -- Функция для проверки наличия ViewModel
+        local function checkViewModel()
+            camera = game.Workspace:FindFirstChild("Camera")
+            if camera then
+                viewModel = camera:FindFirstChild("ViewModel")
+                if viewModel then
+                    humanoid = viewModel:FindFirstChildOfClass("Humanoid")
+                    if humanoid then
+                        animator = humanoid:FindFirstChild("Animator")
+                        return animator  -- Возвращаем animator, если найден
+                    end
+                end
+            end
+            return nil  -- Возвращаем nil, если не найден
+        end
+
+        -- Постоянная проверка наличия ViewModel
+        while true do
+            animator = checkViewModel()
+
+            if animator then
+                warn('ViewModel найден в камере')
 
                 -- Удаляем предыдущий обработчик, если он существует
                 if megaknifeHandler then
@@ -515,11 +532,13 @@ local megknifemain = megaKnife:AddToggle({
                         print('2')
                     end
                 end)
+
+                break  -- Выходим из цикла, если ViewModel найден
             else
-                warn('Humanoid или Animator не найдены в ViewModel.')
+                warn('ViewModel не найден в камере. Проверка продолжится...')
             end
-        else
-            warn('ViewModel не найден в камере. Возьмите в руки нож.')
+
+            wait(1)  -- Ждем 1 секунду перед следующей проверкой
         end
 
         -- Логирование состояния
