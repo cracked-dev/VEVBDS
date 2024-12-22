@@ -480,7 +480,7 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 
 
 local megknifemain = megaKnife:AddToggle({
-    Name = "Enable",
+    Name = "Enabled",
     Value = false,
     Flag = 'megaknifeToggleFlag',
     Callback = function(value)
@@ -1694,7 +1694,7 @@ local megaKnifeSlider = megaKnife:AddSlider({
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 1,
 	Min = 1,
-	Max = 1000,
+	Max = 100000,
 	Callback = function(value)
 		values.radius["megaknifespeed"] = value
 		warn(values.megaknifespeed) --q
