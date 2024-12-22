@@ -490,12 +490,14 @@ local megknifemain = megaKnife:AddToggle({
         local Players = game:GetService("Players")
         local player = Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
+	
 	if game.Workspace.Camera:FindFirstChild("ViewModel") then
-		local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
+		warn('все ок')
 	else
 		warn('возбми в руки нож')
 	end
 
+	local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
         if megaknifeHandler then
             megaknifeHandler:Disconnect()
         end
