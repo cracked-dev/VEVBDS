@@ -479,29 +479,29 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 
 
 local megknifemain = megaKnife:AddToggle({
-	Name = "Enable",
-	Value = false,
-	Flag = 'megaknifeToggleFlag',
-	Callback = function(value)
-		while true do
-	
-			local Players = game:GetService("Players")
-			local player = Players.LocalPlayer
-			local character = player.Character or player.CharacterAdded:Wait()
-			local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
-				
-			humanoid.AnimationPlayed:Connect(function(animationTrack)
-				if value == 'true' then
-				        animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
-				else
-					animationTrack:AdjustSpeed(1)		
-				end
-			end
+    Name = "Enable",
+    Value = false,
+    Flag = 'megaknifeToggleFlag',
+    Callback = function(value)
+        local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
 
-			wait(0.01)
-		end
-	end
-end
+
+        if humanoid.AnimationPlayed then
+            humanoid.AnimationPlayed:Disconnect()
+        end
+
+
+        humanoid.AnimationPlayed:Connect(function(animationTrack)
+            if value then -- Проверяем, является ли value истинным
+                animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
+            else
+                animationTrack:AdjustSpeed(1)        
+            end
+        end)
+    end
 })
 
 local playerNameTagToggle = playerVisualsSec:AddToggle({
