@@ -1694,7 +1694,7 @@ local megaKnifeSlider = megaKnife:AddSlider({
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 1,
 	Min = 1,
-	Max = 100000,
+	Max = 1000,
 	Callback = function(value)
 		values.radius["megaknifespeed"] = value
 		warn(values.megaknifespeed) --q
