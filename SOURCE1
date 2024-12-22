@@ -498,11 +498,8 @@ local megknifemain = megaKnife:AddToggle({
 				end
 			end
 
-				    
-				
-			warn('err ~500~')
+			wait(0.01)
 		end
-	wait(0.01)
 	end
 end
 })
