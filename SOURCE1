@@ -477,6 +477,12 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 	end
 })
 
+local function notfii()
+	Library.Notify({
+			Text = "Возми в руки нож!",
+			Duration = 2
+		})
+end
 
 
 local megknifemain = megaKnife:AddToggle({
@@ -492,10 +498,8 @@ local megknifemain = megaKnife:AddToggle({
 	if game.Workspace.Camera.ViewModel.Humanoid.Animator then
 	        local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
 	else
-		Library.Notify({
-			Text = "Возми в руки нож!",
-			Duration = 2
-		})
+		notfii()
+	
 			
 
 
