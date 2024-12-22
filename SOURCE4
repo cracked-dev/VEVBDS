@@ -494,6 +494,8 @@ local megknifemain = megaKnife:AddToggle({
 		local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
 	else
 		warn('возбми в руки нож')
+	end
+
         if megaknifeHandler then
             megaknifeHandler:Disconnect()
         end
