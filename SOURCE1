@@ -484,32 +484,36 @@ local megknifemain = megaKnife:AddToggle({
     Value = false,
     Flag = 'megaknifeToggleFlag',
     Callback = function(value)
-	values.enabled["megaknifeenabled"] = value
-		if not values.enabled["megaknifeenabled"] then
-			print('2')	
-		else
-			while values.enabled["megaknifeenabled"] do
-			        local Players = game:GetService("Players")
-			        local player = Players.LocalPlayer
-			        local character = player.Character or player.CharacterAdded:Wait()
-			        local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
-			
-			        humanoid.AnimationPlayed:Connect(function(animationTrack)
-					if values.enabled["megaknifeenabled"] == true then
-				        	animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
-						print('1')
-					elseif values.enabled["megaknifeenabled"] == false then	
-						animationTrack:AdjustSpeed(1)
-						print('2')
-					end
-			        end)
-			end
-				
-		end
-	end
-    end
+        values.enabled["megaknifeenabled"] = value
 
+        local Players = game:GetService("Players")
+        local player = Players.LocalPlayer
+        local character = player.Character or player.CharacterAdded:Wait()
+        local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
+
+
+        if megaknifeHandler then
+            megaknifeHandler:Disconnect()
+        end
+
+
+        megaknifeHandler = humanoid.AnimationPlayed:Connect(function(animationTrack)
+            if values.enabled["megaknifeenabled"] then
+                animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
+                print('1')
+            else
+                animationTrack:AdjustSpeed(1)
+                print('2')
+            end
+        end)
+
+
+        if not values.enabled["megaknifeenabled"] then
+            print('Тоггл выключен')
+        end
+    end
 })
+
 
 local playerNameTagToggle = playerVisualsSec:AddToggle({
 	Name = "NameTag",
