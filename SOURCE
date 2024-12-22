@@ -1764,13 +1764,13 @@ end
 
 local X = viewmodeloffset:AddSlider({
     Name = "X",
-    Flag = "MegaKnifeSpeedFFlag",
+    Flag = "offsetXFFlag",
     Value = 0,
     Min = 1,  -- Убедитесь, что минимальное значение может быть отрицательным
     Max = 10,
     Callback = function(value)
         values.radius["offsetx"] = value
-	warn(value)
+	warn(values.radius["offsetx"])
 	xoffset()
     end
 })
