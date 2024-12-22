@@ -504,7 +504,7 @@ local megknifemain = megaKnife:AddToggle({
 		else
 			while values.enabled["megaknifeenabled"] do
 				print('1')
-		
+				wait(0.01)
 			end
 		end
 end
