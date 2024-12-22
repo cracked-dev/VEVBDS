@@ -483,6 +483,7 @@ local megknifemain = megaKnife:AddToggle({
     Value = false,
     Flag = 'megaknifeToggleFlag',
     Callback = function(value)
+	print(value)
         local Players = game:GetService("Players")
         local player = Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
@@ -491,7 +492,7 @@ local megknifemain = megaKnife:AddToggle({
 
 
         humanoid.AnimationPlayed:Connect(function(animationTrack)
-            if value == true then
+            if value then
                 animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
             else
                 animationTrack:AdjustSpeed(1)        
