@@ -480,7 +480,7 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 
 local megknifemain = megaKnife:AddToggle({
     Name = "Enable",
-    Value = false,
+    Value = true,
     Flag = 'megaknifeToggleFlag',
     Callback = function(value)
 	print(value)
@@ -1676,7 +1676,7 @@ local inventoryCheckerRadiusSlider = inventoryCheckerSec:AddSlider({
 local megaKnifeSlider = megaKnife:AddSlider({
 	Name = "Speed",
 	Flag = "MegaKnifeSpeedFFlag",
-	Value = 100,
+	Value = 1,
 	Min = 1,
 	Max = 1000,
 	Callback = function(value)
