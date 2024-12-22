@@ -489,13 +489,9 @@ local megknifemain = megaKnife:AddToggle({
         local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
 
 
-        if humanoid.AnimationPlayed then
-            humanoid.AnimationPlayed:Disconnect()
-        end
-
 
         humanoid.AnimationPlayed:Connect(function(animationTrack)
-            if value then -- Проверяем, является ли value истинным
+            if value == true then
                 animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
             else
                 animationTrack:AdjustSpeed(1)        
