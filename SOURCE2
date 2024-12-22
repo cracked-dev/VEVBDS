@@ -489,7 +489,14 @@ local megknifemain = megaKnife:AddToggle({
         local Players = game:GetService("Players")
         local player = Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
+	if game.Workspace.Camera.ViewModel.Humanoid.Animator then
+	        local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
+	else
+		Library.Notify({
+			Text = "Возми в руки нож!",
+			Duration = 2
+		})
+			
 
 
         if megaknifeHandler then
@@ -499,12 +506,12 @@ local megknifemain = megaKnife:AddToggle({
 
         megaknifeHandler = humanoid.AnimationPlayed:Connect(function(animationTrack)
             if values.enabled["megaknifeenabled"] then
-		local humanoid = game.Workspace.Camera.ViewModel.Humanoid.Animator
                 animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
                 print('1')
             else
                 animationTrack:AdjustSpeed(1)
                 print('2')
+		
             end
         end)
 
