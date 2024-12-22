@@ -503,7 +503,15 @@ local megknifemain = megaKnife:AddToggle({
 			print('2')	
 		else
 			while values.enabled["megaknifeenabled"] do
-				print('1')
+				print(value)
+			        local Players = game:GetService("Players")
+			        local player = Players.LocalPlayer
+			        local character = player.Character or player.CharacterAdded:Wait()
+			        local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
+			
+			        humanoid.AnimationPlayed:Connect(function(animationTrack)
+			        	animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
+			        end)
 				wait(0.01)
 			end
 		end
