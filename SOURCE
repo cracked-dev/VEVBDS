@@ -58,6 +58,7 @@ local values = {
 		viewmodel = 0.70,
 	},
 	enabled = {
+		megaknifeenabled = false,
 		playerEsp = false,
 		playerNameTag = false,
 		playerDistanceTag = false,
@@ -476,27 +477,37 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 	end
 })
 
+local function knife()
+	while true do
+		print(value)
+	        local Players = game:GetService("Players")
+	        local player = Players.LocalPlayer
+	        local character = player.Character or player.CharacterAdded:Wait()
+	        local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
+	
+	        humanoid.AnimationPlayed:Connect(function(animationTrack)
+	        	animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
+	        end)
+	end
+end
 
+local co = coroutine.create(knife)
 
 local megknifemain = megaKnife:AddToggle({
     Name = "Enable",
-    Value = true,
+    Value = false,
     Flag = 'megaknifeToggleFlag',
     Callback = function(value)
-	print(value)
-        local Players = game:GetService("Players")
-        local player = Players.LocalPlayer
-        local character = player.Character or player.CharacterAdded:Wait()
-        local humanoid = game.Workspace.Camera:WaitForChild("ViewModel").Humanoid.Animator
-
-
-	warn(value)
-        humanoid.AnimationPlayed:Connect(function(animationTrack)
-            if value == true then
-                animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
-            end
-        end)
-    end
+	values.enabled["megaknifeenabled"] = value
+		if not values.enabled["megaknifeenabled"] then
+			print('2')	
+		else
+			while values.enabled["megaknifeenabled"] do
+				print('1')
+		
+			end
+		end
+end
 })
 
 local playerNameTagToggle = playerVisualsSec:AddToggle({
