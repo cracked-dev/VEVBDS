@@ -1763,6 +1763,9 @@ local X = viewmodeloffset:AddSlider({
 	Max = 10,
 	Callback = function(value)
 		values.radius["offsetx"] = value
+		for i,v in pairs(game:GetService("ReplicatedStorage").ViewModels:GetChildren()) do
+			v.HumanoidRootPart.PivotOffset = v.HumanoidRootPart.PivotOffset + Vector3.new(Value, 0,0)
+		end
 	end
 })
 
