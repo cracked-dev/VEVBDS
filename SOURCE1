@@ -510,8 +510,8 @@ local megknifemain = megaKnife:AddToggle({
             return nil  -- Возвращаем nil, если не найден
         end
 
-        -- Проверка наличия ViewModel, пока тоггл включен
-        while values.enabled["megaknifeenabled"] do
+        -- Основной цикл для проверки наличия ViewModel
+        while true do
             animator = checkViewModel()
 
             if animator then
@@ -533,18 +533,23 @@ local megknifemain = megaKnife:AddToggle({
                     end
                 end)
 
-                -- Выходим из цикла, если ViewModel найден
-                break
+                -- Проверка состояния ViewModel в отдельном потоке
+                while values.enabled["megaknifeenabled"] do
+                    wait(1)  -- Ждем 1 секунду перед следующей проверкой
+                    animator = checkViewModel()  -- Проверяем наличие ViewModel
+
+                    if not animator then
+                        warn('ViewModel пропал из камеры')
+                        break  -- Выходим из внутреннего цикла, если ViewModel пропал
+                    end
+                end
+
             else
                 warn('ViewModel не найден в камере. Проверка продолжится...')
             end
 
+            -- Ожидание перед следующей основной проверкой
             wait(1)  -- Ждем 1 секунду перед следующей проверкой
-        end
-
-        -- Если ViewModel не найден, выводим предупреждение
-        if not animator then
-            warn('ViewModel не найден в камере, когда тоггл включен. Скрипт не будет выполнен.')
         end
 
         -- Логирование состояния
@@ -553,6 +558,7 @@ local megknifemain = megaKnife:AddToggle({
         end
     end
 })
+
 
 
 
