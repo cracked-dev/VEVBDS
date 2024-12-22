@@ -1766,12 +1766,15 @@ local X = viewmodeloffset:AddSlider({
         for _, v in pairs(game:GetService("ReplicatedStorage").ViewModels:GetChildren()) do
             local humanoidRootPart = v:FindFirstChild("HumanoidRootPart")
             if humanoidRootPart then -- Проверяем, есть ли HumanoidRootPart
-                -- Изменяем PivotOffset по оси X
-                humanoidRootPart.PivotOffset = Vector3.new(value, humanoidRootPart.PivotOffset.Y, humanoidRootPart.PivotOffset.Z)
+                -- Получаем текущее CFrame
+                local currentCFrame = humanoidRootPart.CFrame
+                -- Изменяем CFrame с учетом значения слайдера
+                humanoidRootPart.CFrame = currentCFrame + Vector3.new(value, 0, 0)
             end
         end
     end
 })
+
 
 
 
