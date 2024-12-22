@@ -491,10 +491,10 @@ local megknifemain = megaKnife:AddToggle({
         local player = Players.LocalPlayer
         local character = player.Character or player.CharacterAdded:Wait()
 
-        -- Переменные для хранения необходимых объектов
+   
         local camera, viewModel, humanoid, animator
 
-        -- Функция для проверки наличия ViewModel
+
         local function checkViewModel()
             camera = game.Workspace:FindFirstChild("Camera")
             if camera then
@@ -503,26 +503,26 @@ local megknifemain = megaKnife:AddToggle({
                     humanoid = viewModel:FindFirstChildOfClass("Humanoid")
                     if humanoid then
                         animator = humanoid:FindFirstChild("Animator")
-                        return animator  -- Возвращаем animator, если найден
+                        return animator 
                     end
                 end
             end
-            return nil  -- Возвращаем nil, если не найден
+            return nil 
         end
 
-        -- Основной цикл для проверки наличия ViewModel
+
         while true do
             animator = checkViewModel()
 
             if animator then
                 warn('ViewModel найден в камере')
 
-                -- Удаляем предыдущий обработчик, если он существует
+           
                 if megaknifeHandler then
                     megaknifeHandler:Disconnect()
                 end
 
-                -- Создаем новый обработчик
+
                 megaknifeHandler = animator.AnimationPlayed:Connect(function(animationTrack)
                     if values.enabled["megaknifeenabled"] then
                         animationTrack:AdjustSpeed(values.radius["megaknifespeed"])
@@ -533,26 +533,25 @@ local megknifemain = megaKnife:AddToggle({
                     end
                 end)
 
-                -- Проверка состояния ViewModel в отдельном потоке
+
                 while values.enabled["megaknifeenabled"] do
-                    wait(1)  -- Ждем 1 секунду перед следующей проверкой
-                    animator = checkViewModel()  -- Проверяем наличие ViewModel
+                    wait(0.5)
+                    animator = checkViewModel()
 
                     if not animator then
                         warn('ViewModel пропал из камеры')
-                        break  -- Выходим из внутреннего цикла, если ViewModel пропал
+                        break 
                     end
                 end
 
             else
-                warn('ViewModel не найден в камере. Проверка продолжится...')
+                warn('ViewModel не найден в камере. Хуйня продолжится...')
             end
 
-            -- Ожидание перед следующей основной проверкой
-            wait(1)  -- Ждем 1 секунду перед следующей проверкой
+            wait(0.5) 
         end
 
-        -- Логирование состояния
+
         if not values.enabled["megaknifeenabled"] then
             print('Тоггл выключен')
         end
