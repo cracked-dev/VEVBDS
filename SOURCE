@@ -1772,12 +1772,12 @@ local X = viewmodeloffset:AddSlider({
     Name = "X",
     Flag = "offsetXFFlag",
     Value = 0,
-    Min = -10,  -- Убедитесь, что минимальное значение может быть отрицательным
+    Min = 1,  -- Убедитесь, что минимальное значение может быть отрицательным
     Max = 10,
     Callback = function(value)
         values.radius["offsetx"] = value
 	warn(values.radius["offsetx"])
-	xoffset(values.radius["offsetx"])
+	xoffset(values.radius["offsety"])
     end
 })
 
@@ -1789,7 +1789,7 @@ local Y = viewmodeloffset:AddSlider({
 	Name = "Y",
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 0,
-	Min = -10,
+	Min = 1,
 	Max = 10,
 	Callback = function(value)
 		values.radius["offsetx"] = value
@@ -1802,12 +1802,12 @@ local Z = viewmodeloffset:AddSlider({
 	Name = "Z",
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 0,
-	Min = -10,
+	Min = 1,
 	Max = 10,
 	Callback = function(value)
 		values.radius["offsetx"] = value
 		warn(values.radius["offsetx"])
-		zoffset(values.radius["offsety"])
+		zoffset(values.radius["offsetz"])
 	end
 })
 
