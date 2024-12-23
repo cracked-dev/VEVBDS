@@ -1756,10 +1756,7 @@ local megaKnifeSlider = megaKnife:AddSlider({
 --1111
 
 local function xoffset(value)
-	 for _, v in pairs(game:GetService("ReplicatedStorage").ViewModels:GetChildren()) do
-            local humanoidRootPart = v:FindFirstChild("HumanoidRootPart")
-	    humanoidRootPart.PivotOffset = humanoidRootPart.PivotOffset + Vector3.new(value, 0, 0)
-        end
+	 game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset = game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset + Vector3.new(value, 0, 0)
 end
 
 local X = viewmodeloffset:AddSlider({
