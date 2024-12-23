@@ -1759,11 +1759,20 @@ local function xoffset(value)
 	 game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset = game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset + Vector3.new(value, 0, 0)
 end
 
+local function Yoffset(value)
+	 game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset = game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset + Vector3.new(0, value, 0)
+end
+
+local function zoffset(value)
+	 game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset = game:GetService("ReplicatedStorage").ViewModels.DV2.HumanoidRootPart.PivotOffset + Vector3.new(0, 0, value)
+end
+
+
 local X = viewmodeloffset:AddSlider({
     Name = "X",
     Flag = "offsetXFFlag",
     Value = 0,
-    Min = 1,  -- Убедитесь, что минимальное значение может быть отрицательным
+    Min = -10,  -- Убедитесь, что минимальное значение может быть отрицательным
     Max = 10,
     Callback = function(value)
         values.radius["offsetx"] = value
@@ -1780,11 +1789,12 @@ local Y = viewmodeloffset:AddSlider({
 	Name = "Y",
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 0,
-	Min = 1,
+	Min = -10,
 	Max = 10,
 	Callback = function(value)
-		values.radius["offsety"] = value
-
+		values.radius["offsetx"] = value
+		warn(values.radius["offsetx"])
+		yoffset(values.radius["offsety"])
 	end
 })
 
@@ -1792,10 +1802,12 @@ local Z = viewmodeloffset:AddSlider({
 	Name = "Z",
 	Flag = "MegaKnifeSpeedFFlag",
 	Value = 0,
-	Min = 1,
+	Min = -10,
 	Max = 10,
 	Callback = function(value)
-		values.radius["offsetz"] = value
+		values.radius["offsetx"] = value
+		warn(values.radius["offsetx"])
+		zoffset(values.radius["offsety"])
 	end
 })
 
