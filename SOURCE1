@@ -1777,7 +1777,7 @@ local X = viewmodeloffset:AddSlider({
     Callback = function(value)
         values.radius["offsetx"] = value
 	warn(values.radius["offsetx"])
-	xoffset(values.radius["offsety"])
+	xoffset(value)
     end
 })
 
@@ -1794,7 +1794,7 @@ local Y = viewmodeloffset:AddSlider({
 	Callback = function(value)
 		values.radius["offsetx"] = value
 		warn(values.radius["offsetx"])
-		yoffset(values.radius["offsety"])
+		yoffset(value)
 	end
 })
 
@@ -1807,7 +1807,7 @@ local Z = viewmodeloffset:AddSlider({
 	Callback = function(value)
 		values.radius["offsetx"] = value
 		warn(values.radius["offsetx"])
-		zoffset(values.radius["offsetz"])
+		zoffset(value)
 	end
 })
 
