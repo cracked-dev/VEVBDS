@@ -396,7 +396,7 @@ local skinChangerSec = miscTab:CreateSection({Name = "SkinChanger", Side = "Left
 local viewmodelSec = miscTab:CreateSection({Name = "Viewmodel", Side = "Right"})
 local helicopterSec = miscTab:CreateSection({Name = "AntiAim", Side = "Right"})
 local tpWalkSec = combatTab:CreateSection({Name = "TpWalk", Side = "Left"})
-local bunnyhop = screenTab:CreateSection({Name = "Bunny Hop", Side = "Left"})
+local bunnyhop = combatTab:CreateSection({Name = "Bunny Hop", Side = "Left"})
 
 local megaKnife = combatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
 
@@ -572,11 +572,11 @@ local bunnyhop = bunnyhop:AddToggle({
 		values.enabled["bunnyhope"] = value
 		while true do
 			if values.enabled["bunnyhope"] == true then
-				print(1)
+				LC.Charater.Humanoid.JumpHeight = 3.2
 			elseif values.enabled["bunnyhope"] == false then
-				print(2)
+
 			end
-			wait(1)
+			wait(0.2)
 		end
 	end
 })
