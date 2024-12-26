@@ -574,7 +574,7 @@ local bunnyhop = bunnyhop:AddToggle({
 			if values.enabled["bunnyhope"] == true then
 				LC.Character.Humanoid.JumpHeight = 3.2
 			elseif values.enabled["bunnyhope"] == false then
-
+				LC.Character.Humanoid.JumpHeight = 2.3
 			end
 			wait(0.2)
 		end
