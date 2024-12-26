@@ -394,8 +394,9 @@ local toggleVisualsSec = miscTab:CreateSection({Name = "Toggle Visuals", Side = 
 local inventoryCheckerSec = miscTab:CreateSection({Name = "InventroyChecker", Side = "Left"})
 local skinChangerSec = miscTab:CreateSection({Name = "SkinChanger", Side = "Left"})
 local viewmodelSec = miscTab:CreateSection({Name = "Viewmodel", Side = "Right"})
-local helicopterSec = miscTab:CreateSection({Name = "AntiAim?", Side = "Right"})
+local helicopterSec = miscTab:CreateSection({Name = "AntiAim", Side = "Right"})
 local tpWalkSec = combatTab:CreateSection({Name = "TpWalk", Side = "Left"})
+local bunnyhop = screenTab:CreateSection({Name = "Bunny Hop", Side = "Left"})
 
 local megaKnife = combatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
 
@@ -563,7 +564,23 @@ local megknifemain = megaKnife:AddToggle({
     end
 })
 
+local bunnyhop = bunnyhop:AddToggle({
+	Name = "Bunnyhope",
+	Value = false,
+	Flag = 'bunnyhopeToggleFlag',
+	Callback = function(value)
+		values.enabled["bunnyhope"] = value
 
+		if not values.enabled["playerNameTag"] then
+			print(1)
+		else
+			while values.enabled["playerNameTag"] do
+				task.wait(1)
+				print(2)
+			end
+		end
+	end
+})
 
 
 local playerNameTagToggle = playerVisualsSec:AddToggle({
