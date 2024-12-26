@@ -570,14 +570,13 @@ local bunnyhop = bunnyhop:AddToggle({
 	Flag = 'bunnyhopeToggleFlag',
 	Callback = function(value)
 		values.enabled["bunnyhope"] = value
-
-		if not values.enabled["playerNameTag"] then
-			print(1)
-		else
-			while values.enabled["playerNameTag"] do
-				task.wait(1)
+		while true do
+			if values.enabled["bunnyhope"] == true then
+				print(1)
+			elseif values.enabled["bunnyhope"] == false then
 				print(2)
 			end
+			wait(1)
 		end
 	end
 })
