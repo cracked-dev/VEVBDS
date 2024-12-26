@@ -90,6 +90,7 @@ local values = {
 		jesus = false,
 		helicopter = false,
 		tpWalk = false,
+		bunnyhop = false,
 	},
 	distance = {
 		player = 1000,
