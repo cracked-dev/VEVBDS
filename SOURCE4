@@ -500,7 +500,7 @@ local ambientToggle = ambientSec:AddToggle({
 
 		if not values.enabled["ambient"] then
 			print(1)
-		else
+		elseif values.enabled["ambient"] then
 			while wait(0.1) do
 				print(2)
 				game:GetService("Lighting").Ambient = Color3.fromRGB(ambientR, ambientG, ambientB)	
