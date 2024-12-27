@@ -2003,13 +2003,13 @@ local choiceSettingsDrop = choiceSettingsSec:AddDropdown({
 }); choiceSettingsDrop:Set({"Player", "Npc", "Vehicle", "Container", "Corpse", "DroppedItem", "Crosshair", "InventoryChecker", "Aim"})
 
 local rendertehnology = rendertehnologySec:AddDropdown({
-	Name = "Render Tehnology",
+	Name = "Render Technology",
 	List = {'Future',1,2,3},
 	Default = 'Future',
 	Flag = "rendertehnologyFlag",
 	Callback = function(value)
 		values.misc["rendertehnology"] = value
-		print(values.misc["rendertehnology"])
+		game:GetService("Lighting").Technology = values.misc["rendertehnology"]
 	end,
 })
 --]
