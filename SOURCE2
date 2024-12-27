@@ -130,6 +130,7 @@ local values = {
 		aimMode = "Lock",
 		tpWalkSpeed = 1,
 		megaknifespeed = 1,
+		rendertehnology = 'Future',
 	}
 }
 
@@ -415,6 +416,7 @@ local miscSettingsSec = settingsTab:CreateSection({Name = "Misc", Side = "Left"}
 
 local worldSettingsSec = worldTab:CreateSection({Name = "World Settings", Side = "Right"})
 local shadowSec = worldTab:CreateSection({Name = "Shadows", Side = "Left"})
+local rendertehnologySec = worldTab:CreateSection({Name = "Render", Side = "Left"})
 
 --]
 --][--
@@ -492,9 +494,9 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 })
 
 local shadows = shadowSec:AddToggle({
-	Name = "Box",
+	Name = "Enabled",
 	Value = false,
-	Flag = 'playerBoxToggleFlag',
+	Flag = 'shadowsFlag',
 	Callback = function(value)
 		values.enabled["shadows"] = value
 
@@ -2000,13 +2002,14 @@ local choiceSettingsDrop = choiceSettingsSec:AddDropdown({
 	end
 }); choiceSettingsDrop:Set({"Player", "Npc", "Vehicle", "Container", "Corpse", "DroppedItem", "Crosshair", "InventoryChecker", "Aim"})
 
-local fontChoiceDrop = miscSettingsSec:AddDropdown({
-	Name = "Tags Font",
-	List = {0,1,2,3},
-	Default = 0,
-	Flag = "fontChoiceDropFlag",
+local rendertehnology = rendertehnologySec:AddDropdown({
+	Name = "Render Tehnology",
+	List = {'Future',1,2,3},
+	Default = 'Future',
+	Flag = "rendertehnologyFlag",
 	Callback = function(value)
-		values.misc["tagsFont"] = value
+		values.misc["rendertehnology"] = value
+		print(values.misc["rendertehnology"])
 	end,
 })
 --]
