@@ -395,12 +395,13 @@ local inventoryCheckerSec = miscTab:CreateSection({Name = "InventroyChecker", Si
 local skinChangerSec = miscTab:CreateSection({Name = "SkinChanger", Side = "Left"})
 local viewmodelSec = miscTab:CreateSection({Name = "Viewmodel", Side = "Right"})
 local helicopterSec = miscTab:CreateSection({Name = "AntiAim", Side = "Right"})
+local aimSec = combatTab:CreateSection({Name = "Aim", Side = "Left"})
 local tpWalkSec = combatTab:CreateSection({Name = "TpWalk", Side = "Left"})
 local bunnyhop = combatTab:CreateSection({Name = "Bunny Hop", Side = "Left"})
 
 local megaKnife = combatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
 
-local aimSec = combatTab:CreateSection({Name = "Aim", Side = "Left"})
+
 local megaBulletsSec = combatTab:CreateSection({Name = "MegaBullets", Side = "Right"})
 local miscCombatSec = combatTab:CreateSection({Name = "Misc", Sied = "Left"})
 
