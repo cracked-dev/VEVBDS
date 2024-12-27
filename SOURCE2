@@ -115,6 +115,9 @@ local values = {
 		offsetx = 0,
 		offsety = 0,
 		offsetz = 0,
+		ambientR = 0,
+		ambientG = 0,
+		ambientB = 0,
 	},
 	misc = {
 		tagsFont = 1,
@@ -498,10 +501,7 @@ local ambientToggle = ambientSec:AddToggle({
 		if not values.enabled["ambient"] then
 			print(1)
 		else
-			while values.enabled["ambient"] do
-				task.wait(1)
-				print(2)
-			end
+			game:GetService("Lighting").Ambient = Color3.fromRGB(ambientR, ambientG, ambientB)	
 		end
 	end
 })
@@ -1777,6 +1777,40 @@ local inventoryCheckerRadiusSlider = inventoryCheckerSec:AddSlider({
 	Max = 100,
 	Callback = function(value)
 		values.radius["inventoryChecker"] = value
+	end
+})
+
+
+local ambientR = ambientSec:AddSlider({
+	Name = "R",
+	Flag = "InventoryCheckerFovRadiusFlag",
+	Value = 1,
+	Min = 1,
+	Max = 255,
+	Callback = function(value)
+		values.radius["ambientR"] = value
+	end
+})
+
+local ambientG = ambientSec:AddSlider({
+	Name = "G",
+	Flag = "InventoryCheckerFovRadiusFlag",
+	Value = 1,
+	Min = 1,
+	Max = 255,
+	Callback = function(value)
+		values.radius["ambientG"] = value
+	end
+})
+
+local ambientB = ambientSec:AddSlider({
+	Name = "B",
+	Flag = "InventoryCheckerFovRadiusFlag",
+	Value = 1,
+	Min = 1,
+	Max = 255,
+	Callback = function(value)
+		values.radius["ambientB"] = value
 	end
 })
 
