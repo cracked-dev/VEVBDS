@@ -1,5 +1,5 @@
 --[ INITIALISING THE UI
-local Library, Flags, Subs = loadstring(game:HttpGet("https://paste.gg/p/anonymous/3ffc0a3fece64a3286eade32261909bc/files/e0e26d698dc54c30a5705a8e7e97715f/raw"))()
+local Library, Flags, Subs = loadstring(game:HttpGet("https://pastebin.com/raw/PHhnPnz4"))()  --https://paste.gg/p/anonymous/3ffc0a3fece64a3286eade32261909bc/files/e0e26d698dc54c30a5705a8e7e97715f/raw
 local Window = Library:CreateWindow({
 	Name = "ББС РУСС (vevs.bds) fix",
 	Themeable = {Credit = false, Info = {"Пендос", "Discord: mr.vevs."}, Background = "rbxassetid://12739424491"},
