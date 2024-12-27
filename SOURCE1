@@ -498,7 +498,7 @@ local shadows = shadowSec:AddToggle({
 	Callback = function(value)
 		values.enabled["shadows"] = value
 
-		if not values.enabled["playerBox"] then
+		if not values.enabled["shadows"] then
 			game:GetService("Lighting").GlobalShadows = true
 		else
 			game:GetService("Lighting").GlobalShadows = false
