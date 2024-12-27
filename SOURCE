@@ -373,6 +373,7 @@ end
 --[ TABS
 local visualsTab = Window:CreateTab({Name = "Visuals"})
 local combatTab = Window:CreateTab({Name = "Combat"})
+local playerTab = Window:CreateTab({Name = "Player"})
 local worldTab = Window:CreateTab({Name = "World"})
 local screenTab = Window:CreateTab({Name = "Screen"})
 local miscTab = Window:CreateTab({Name = "Misc"})
