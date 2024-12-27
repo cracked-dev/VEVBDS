@@ -2022,7 +2022,7 @@ local Skybox  = worldSettingsSec:AddDropdown({
 	Callback = function(value)
 		values.misc["skybox"] = value
 		if values.misc["skybox"] == 'Spongebob' then
-			local sky = game:GetService("Lighting")["Nuclear Winter 2 - A Jegabert skybox"]
+			local sky = game:GetService("Lighting").Sky
 			sky.SkyboxBk = 'http://www.roblox.com/asset/?id=7633178166'
 			sky.SkyboxDn = 'http://www.roblox.com/asset/?id=7633178166'
 			sky.SkyboxFt = 'http://www.roblox.com/asset/?id=7633178166'
