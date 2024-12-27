@@ -495,10 +495,10 @@ local ambientToggle = ambientSec:AddToggle({
 	Callback = function(value)
 		values.enabled["ambient"] = value
 
-		if not values.enabled["playerBox"] then
+		if not values.enabled["ambient"] then
 			print(1)
 		else
-			while values.enabled["playerBox"] do
+			while values.enabled["ambient"] do
 				task.wait(1)
 				print(2)
 			end
