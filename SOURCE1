@@ -395,10 +395,10 @@ local toggleVisualsSec = miscTab:CreateSection({Name = "Toggle Visuals", Side = 
 local inventoryCheckerSec = miscTab:CreateSection({Name = "InventroyChecker", Side = "Left"})
 local skinChangerSec = miscTab:CreateSection({Name = "SkinChanger", Side = "Left"})
 local viewmodelSec = miscTab:CreateSection({Name = "Viewmodel", Side = "Right"})
-local helicopterSec = miscTab:CreateSection({Name = "AntiAim", Side = "Right"})
+local helicopterSec = playerTab:CreateSection({Name = "AntiAim", Side = "Right"})
 local aimSec = combatTab:CreateSection({Name = "Aim", Side = "Left"})
-local tpWalkSec = combatTab:CreateSection({Name = "TpWalk", Side = "Left"})
-local bunnyhop = combatTab:CreateSection({Name = "Bunny Hop", Side = "Left"})
+local tpWalkSec = playerTab:CreateSection({Name = "Tp Walk", Side = "Left"})
+local bunnyhop = playerTab:CreateSection({Name = "Bunny Hope", Side = "Left"})
 
 local megaKnife = combatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
 
