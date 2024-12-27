@@ -411,6 +411,7 @@ local choiceSettingsSec = settingsTab:CreateSection({Name = "Settings", Side = "
 local miscSettingsSec = settingsTab:CreateSection({Name = "Misc", Side = "Left"})
 
 local worldSettingsSec = worldTab:CreateSection({Name = "World Settings", Side = "Right"})
+local ambientSec = worldTab:CreateSection({Name = "Ambient", Side = "Left"})
 --]
 --][--
 
@@ -485,6 +486,26 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 		end
 	end
 })
+
+
+local ambientToggle = ambientSec:AddToggle({
+	Name = "Enabled",
+	Value = false,
+	Flag = 'ambientToggleFlag',
+	Callback = function(value)
+		values.enabled["ambient"] = value
+
+		if not values.enabled["playerBox"] then
+			print(1)
+		else
+			while values.enabled["playerBox"] do
+				task.wait(1)
+				print(2)
+			end
+		end
+	end
+})
+
 
 
 
