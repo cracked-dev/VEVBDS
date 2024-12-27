@@ -91,6 +91,7 @@ local values = {
 		helicopter = false,
 		tpWalk = false,
 		bunnyhop = false,
+		ambient = false,
 	},
 	distance = {
 		player = 1000,
