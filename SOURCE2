@@ -91,7 +91,7 @@ local values = {
 		helicopter = false,
 		tpWalk = false,
 		bunnyhop = false,
-		ambient = false,
+		shadows = false,
 	},
 	distance = {
 		player = 1000,
@@ -414,6 +414,7 @@ local choiceSettingsSec = settingsTab:CreateSection({Name = "Settings", Side = "
 local miscSettingsSec = settingsTab:CreateSection({Name = "Misc", Side = "Left"})
 
 local worldSettingsSec = worldTab:CreateSection({Name = "World Settings", Side = "Right"})
+local shadowSec = worldTab:CreateSection({Name = "Shadows", Side = "Left"})
 
 --]
 --][--
@@ -486,6 +487,21 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 					end
 				end
 			end
+		end
+	end
+})
+
+local shadows = shadowSec:AddToggle({
+	Name = "Box",
+	Value = false,
+	Flag = 'playerBoxToggleFlag',
+	Callback = function(value)
+		values.enabled["shadows"] = value
+
+		if not values.enabled["playerBox"] then
+			game:GetService("Lighting").GlobalShadows = true
+		else
+			game:GetService("Lighting").GlobalShadows = false
 		end
 	end
 })
