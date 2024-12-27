@@ -131,6 +131,7 @@ local values = {
 		tpWalkSpeed = 1,
 		megaknifespeed = 1,
 		rendertehnology = 'Future',
+		skybox = 'None',
 	}
 }
 
@@ -2012,6 +2013,28 @@ local rendertehnology = rendertehnologySec:AddDropdown({
 		game:GetService("Lighting").Technology = values.misc["rendertehnology"]
 	end,
 })
+
+local Skybox  = worldSettingsSec:AddDropdown({
+	Name = "Skybox",
+	List = {'Spongebob','Compatibility','Legacy','ShadowMap','Unified','Voxel'},
+	Default = 'None',
+	Flag = "rendertehnologyFlag",
+	Callback = function(value)
+		values.misc["rendertehnology"] = value
+		if values.misc["skybox"] == 'Spongebob' then
+			local sky = game:GetService("Lighting")["Nuclear Winter 2 - A Jegabert skybox"]
+			sky.SkyboxBk = 'http://www.roblox.com/asset/?id=7633178166'
+			sky.SkyboxDn = 'http://www.roblox.com/asset/?id=7633178166'
+			sky.SkyboxFt = 'http://www.roblox.com/asset/?id=7633178166'
+			sky.SkyboxLf = 'http://www.roblox.com/asset/?id=7633178166'
+			sky.SkyboxRt = 'http://www.roblox.com/asset/?id=7633178166'
+			sky.SkyboxUp = 'http://www.roblox.com/asset/?id=7633178166'
+		end
+	end,
+})
+
+
+
 --]
 
 --] }}
