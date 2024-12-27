@@ -2004,7 +2004,7 @@ local choiceSettingsDrop = choiceSettingsSec:AddDropdown({
 
 local rendertehnology = rendertehnologySec:AddDropdown({
 	Name = "Render Technology",
-	List = {'Future',Compatibility,Legacy,ShadowMap,Unified,Voxel},
+	List = {'Future','Compatibility','Legacy','ShadowMap','Unified','Voxel'},
 	Default = 'Future',
 	Flag = "rendertehnologyFlag",
 	Callback = function(value)
