@@ -1837,6 +1837,7 @@ local time = timeSec:AddSlider({
 	Callback = function(value)
 		values.radius["time"] = value
 		if game:GetService("Lighting").WeatherStatus:FindFirstChild("MinutesAfterMidnight") then
+			wait(10)
 			game:GetService("Lighting").WeatherStatus.MinutesAfterMidnight:Remove()
 		end
 		game:GetService("Lighting").ClockTime = values.radius["time"]
