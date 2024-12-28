@@ -92,6 +92,7 @@ local values = {
 		tpWalk = false,
 		bunnyhop = false,
 		shadows = false,
+		clouds = false,
 	},
 	distance = {
 		player = 1000,
@@ -420,7 +421,7 @@ local worldSettingsSec = worldTab:CreateSection({Name = "World Settings", Side =
 local shadowSec = worldTab:CreateSection({Name = "Shadows", Side = "Left"})
 local rendertehnologySec = worldTab:CreateSection({Name = "Render", Side = "Left"})
 local timeSec = worldTab:CreateSection({Name = "Time", Side = "Left"})
-
+local cloudsSec = worldTab:CreateSection({Name = "Clouds", Side = "Left"})
 --]
 --][--
 
@@ -507,6 +508,23 @@ local shadows = shadowSec:AddToggle({
 			game:GetService("Lighting").GlobalShadows = true
 		else
 			game:GetService("Lighting").GlobalShadows = false
+		end
+	end
+})
+
+local clouds = cloudsSec:AddToggle({
+	Name = "Enabled",
+	Value = false,
+	Flag = 'cloudsFlag',
+	Callback = function(value)
+		values.enabled["clouds"] = value
+
+		if not values.enabled["clouds"] then
+			if workspace.Terrain:FindFirstChild("Clouds") then
+				workspace.Terrain.Clouds.Enabled = true
+		else
+			if workspace.Terrain:FindFirstChild("Clouds") then
+				workspace.Terrain.Clouds.Enabled = false	
 		end
 	end
 })
