@@ -1840,7 +1840,7 @@ local time = timeSec:AddSlider({
 			game:GetService("Lighting").WeatherStatus.MinutesAfterMidnight:Remove()	
 		end
 
-		if game:GetService("Players").LocalPlayer.PlayerScripts.UltimateWeatherV6 then
+		if game:GetService("Players").LocalPlayer.PlayerScripts:FindFirstChild("UltimateWeatherV6") then
 			game:GetService("Players").LocalPlayer.PlayerScripts.UltimateWeatherV6:Remove()	
 		end
 		game:GetService("Lighting").ClockTime = values.radius["time"]
