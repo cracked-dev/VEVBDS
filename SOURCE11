@@ -523,7 +523,7 @@ local thirdperson = thirdpersonSec:AddToggle({
 		values.enabled["thirdperson"] = value
 
 		if not values.enabled["shadows"] then
-			game:GetService("Players").LocalPlayer.CameraMode = 'LooKFirstPerson'
+			game:GetService("Players").LocalPlayer.CameraMode = 'LockFirstPerson'
 			game:GetService("Players").LocalPlayer.MaxZoomDistance = 0.5
 		else
 			game:GetService("Players").LocalPlayer.CameraMode = 'Classic'
