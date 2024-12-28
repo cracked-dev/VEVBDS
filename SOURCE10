@@ -93,6 +93,7 @@ local values = {
 		bunnyhop = false,
 		shadows = false,
 		clouds = false,
+		thirdperson = false,
 	},
 	distance = {
 		player = 1000,
@@ -422,6 +423,7 @@ local shadowSec = worldTab:CreateSection({Name = "Shadows", Side = "Left"})
 local cloudsSec = worldTab:CreateSection({Name = "Clouds", Side = "Left"})
 local rendertehnologySec = worldTab:CreateSection({Name = "Render", Side = "Left"})
 local timeSec = worldTab:CreateSection({Name = "Time", Side = "Left"})
+local thirdpersonSec = worldTab:CreateSection({Name = "Thirth Person", Side = "Right"})
 
 --]
 --][--
@@ -509,6 +511,23 @@ local shadows = shadowSec:AddToggle({
 			game:GetService("Lighting").GlobalShadows = true
 		else
 			game:GetService("Lighting").GlobalShadows = false
+		end
+	end
+})
+
+local thirdperson = thirdpersonSec:AddToggle({
+	Name = "Enabled",
+	Value = false,
+	Flag = 'thirdpersonFlag',
+	Callback = function(value)
+		values.enabled["thirdperson"] = value
+
+		if not values.enabled["shadows"] then
+			game:GetService("Players").LocalPlayer.CameraMode = 'LooKFirstPerson'
+			game:GetService("Players").LocalPlayer.MaxZoomDistance = 0.5
+		else
+			game:GetService("Players").LocalPlayer.CameraMode = 'Classic'
+			game:GetService("Players").LocalPlayer.MaxZoomDistance = 128
 		end
 	end
 })
