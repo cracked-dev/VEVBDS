@@ -118,6 +118,7 @@ local values = {
 		ambientR = 0,
 		ambientG = 0,
 		ambientB = 0,
+		time = 14,
 	},
 	misc = {
 		tagsFont = 1,
@@ -1822,6 +1823,22 @@ local tpWalkSpeedSlider = tpWalkSec:AddSlider({
 	Decimals = 1,
 	Callback = function(value)
 		values.misc["tpWalkSpeed"] = value
+	end
+})
+
+local time = worldSec:AddSlider({
+	Name = "Time",
+	Flag = "timeFlag",
+	Value = 14,
+	Min = 0,
+	Max = 24,
+	Decimals = 1,
+	Callback = function(value)
+		values.radius["time"] = value
+		if game:GetService("Lighting"):FindFirtsChild('WeatherStatus') then
+			game:GetService("Lighting"):FindFirtsChild('WeatherStatus'):Remove()
+		end
+		game:GetService("Lighting").ClockTime = values.radius["time"]
 	end
 })
 --]
