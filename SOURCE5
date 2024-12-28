@@ -2043,12 +2043,6 @@ local Skybox  = worldSettingsSec:AddDropdown({
 	Flag = "rendertehnologyFlag",
 	Callback = function(value)
 		values.misc["skybox"] = value
-		if game:GetService("Lighting"):FindFirstChild('WeatherStatus') then
-			game:GetService("Lighting").WeatherStatus:Remove()
-			game:GetService("Players").LocalPlayer.PlayerScripts.UltimateWeatherV6.Enabled = false
-		end
-
-		game:GetService("Players").LocalPlayer.PlayerScripts.UltimateWeatherV6.Enabled = false
 
 		if game:GetService("Lighting"):FindFirstChild('Sky') then
 			if values.misc["skybox"] == 'Spongebob' then
