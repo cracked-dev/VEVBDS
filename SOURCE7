@@ -4,7 +4,7 @@ local Window = Library:CreateWindow({
 	Name = "ББС РУСС (vevs.bds) fix",
 	Themeable = {Credit = false, Info = {"Пендос", "Discord: mr.vevs."}, Background = ""},
 })--]
-warn('0.7') --q2
+warn('0.7') --q4
 --[ VARIABLES
 local workspace = game.Workspace
 local players = game:GetService("Players")
