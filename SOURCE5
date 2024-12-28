@@ -419,6 +419,7 @@ local miscSettingsSec = settingsTab:CreateSection({Name = "Misc", Side = "Left"}
 local worldSettingsSec = worldTab:CreateSection({Name = "World Settings", Side = "Right"})
 local shadowSec = worldTab:CreateSection({Name = "Shadows", Side = "Left"})
 local rendertehnologySec = worldTab:CreateSection({Name = "Render", Side = "Left"})
+local timeSec = worldTab:CreateSection({Name = "Time", Side = "Left"})
 
 --]
 --][--
@@ -1826,7 +1827,7 @@ local tpWalkSpeedSlider = tpWalkSec:AddSlider({
 	end
 })
 
-local time = worldSec:AddSlider({
+local time = timeSec:AddSlider({
 	Name = "Time",
 	Flag = "timeFlag",
 	Value = 14,
