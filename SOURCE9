@@ -499,7 +499,7 @@ local playerBoxToggle = playerVisualsSec:AddToggle({
 })
 
 local shadows = shadowSec:AddToggle({
-	Name = "Enabled",
+	Name = "Disabled",
 	Value = false,
 	Flag = 'shadowsFlag',
 	Callback = function(value)
@@ -514,7 +514,7 @@ local shadows = shadowSec:AddToggle({
 })
 
 local clouds = cloudsSec:AddToggle({
-	Name = "Enabled",
+	Name = "Disabled",
 	Value = false,
 	Flag = 'cloudsFlag',
 	Callback = function(value)
