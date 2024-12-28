@@ -408,6 +408,7 @@ local helicopterSec = playerTab:CreateSection({Name = "AntiAim", Side = "Right"}
 local aimSec = combatTab:CreateSection({Name = "Aim", Side = "Left"})
 local tpWalkSec = playerTab:CreateSection({Name = "Tp Walk", Side = "Left"})
 local bunnyhop = playerTab:CreateSection({Name = "Bunny Hope", Side = "Left"})
+local thirdpersonSec = playerTab:CreateSection({Name = "Third Person", Side = "Right"})
 
 local megaKnife = combatTab:CreateSection({Name = "MegaKnife", Side = "Left"})
 
@@ -423,7 +424,7 @@ local shadowSec = worldTab:CreateSection({Name = "Shadows", Side = "Left"})
 local cloudsSec = worldTab:CreateSection({Name = "Clouds", Side = "Left"})
 local rendertehnologySec = worldTab:CreateSection({Name = "Render", Side = "Left"})
 local timeSec = worldTab:CreateSection({Name = "Time", Side = "Left"})
-local thirdpersonSec = worldTab:CreateSection({Name = "Thirth Person", Side = "Right"})
+
 
 --]
 --][--
