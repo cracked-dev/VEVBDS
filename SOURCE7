@@ -522,9 +522,11 @@ local clouds = cloudsSec:AddToggle({
 		if not values.enabled["clouds"] then
 			if workspace.Terrain:FindFirstChild("Clouds") then
 				workspace.Terrain.Clouds.Enabled = true
+			end
 		else
 			if workspace.Terrain:FindFirstChild("Clouds") then
-				workspace.Terrain.Clouds.Enabled = false	
+				workspace.Terrain.Clouds.Enabled = false
+			end
 		end
 	end
 })
