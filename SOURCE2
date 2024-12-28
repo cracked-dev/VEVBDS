@@ -2021,11 +2021,11 @@ local Skybox  = worldSettingsSec:AddDropdown({
 	Flag = "rendertehnologyFlag",
 	Callback = function(value)
 		values.misc["skybox"] = value
-		if game:GetService("Lighting").WeatherStatus then
+		if game:GetService("Lighting"):FindFirstChild('WeatherStatus') then
 			game:GetService("Lighting").WeatherStatus:Remove()
 		end
 
-		if game:GetService("Lighting").Sky then
+		if game:GetService("Lighting"):FindFirstChild('Sky') then
 			if values.misc["skybox"] == 'Spongebob' then
 				local sky = game:GetService("Lighting").Sky
 				sky.SkyboxBk = 'http://www.roblox.com/asset/?id=7633178166'
